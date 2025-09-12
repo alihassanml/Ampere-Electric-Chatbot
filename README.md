@@ -1,7 +1,7 @@
 # Ampere Electric Chatbot 🚗⚡
 
 A modern, responsive customer support chatbot built with React and TypeScript, featuring real-time webhook integration and animated UI components. Perfect for electric vehicle companies, customer service, and support automation.
-![Chatbot](./image.png)
+![Chatbot](./public/image.png)
 ![React](https://img.shields.io/badge/React-18.0-blue.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-3.0-blue.svg)

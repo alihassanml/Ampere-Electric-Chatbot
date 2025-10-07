@@ -90,7 +90,7 @@ const CustomerSupportChatbot = () => {
   ];
 
   // Webhook integration - Replace with your actual webhook URL
-  const WEBHOOK_URL = "https://auto.robogrowthpartners.com/webhook/kasselwoodfabricators-chatbot";
+  const WEBHOOK_URL = "https://auto.robogrowthpartners.com/webhook/ampere-electric";
 
   const handleBotResponse = async (userMessage: string) => {
     setBotBusy(true);
@@ -211,7 +211,7 @@ const CustomerSupportChatbot = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md mx-4 sm:mx-0 z-50 ">
+    <div className="fixed bottom-0 right-0   w-full  ">
       <div 
         className="bg-white shadow-2xl border border-gray-200 overflow-hidden"
         style={{ 
@@ -224,8 +224,8 @@ const CustomerSupportChatbot = () => {
         <div className="flex flex-col h-full">
           
           {/* Simple Animated Header with Conditional Styling */}
-          <div className={`relative overflow-hidden bg-gradient-to-br from-violet-600 via-purple-600 to-blue-600  ${
-            screen === 'home' ? 'pb-8' : ''
+          <div className={`relative overflow-hidden bg-gradient-to-br from-indigo-900 via-indigo-500 to-blue-600  ${
+            screen === 'home' ? 'pb-8 curved-rectangle' : ''
           }`} style={{ borderRadius: '30px 30px 0 0' }}>
             {/* Moving Background Animation */}
             <div className="absolute inset-0">
@@ -262,48 +262,25 @@ const CustomerSupportChatbot = () => {
                      animationDelay: '3s'
                    }}></div>
               
-              {/* Moving Dots */}
-              <div className="absolute w-2 h-2 bg-white/40 rounded-full"
-                   style={{ 
-                     top: '30%', 
-                     left: '70%',
-                     animation: 'moveDot 8s linear infinite'
-                   }}></div>
-              <div className="absolute w-1.5 h-1.5 bg-white/30 rounded-full"
-                   style={{ 
-                     top: '70%', 
-                     left: '30%',
-                     animation: 'moveDot 10s linear infinite reverse',
-                     animationDelay: '2s'
-                   }}></div>
-              <div className="absolute w-1 h-1 bg-white/50 rounded-full"
-                   style={{ 
-                     top: '50%', 
-                     right: '40%',
-                     animation: 'moveDot 6s linear infinite',
-                     animationDelay: '4s'
-                   }}></div>
             </div>
             
             {/* Header Content */}
-            <div className={`relative z-10 text-white ${
-              screen === 'home' ? 'p-6 pb-4' : 'p-5'
+            <div className={`relative z-10 text-white   ${
+              screen === 'home' ? 'p-6 pb-4 ' : 'p-5'
             }`}>
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
                   {/* Simple Bot Avatar */}
                   <div className="relative">
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-lg">
-                      <Bot className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-white/0 backdrop-blur-sm  flex items-center justify-center  shadow-lg">
+                      <img src="logo.png" alt="" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse shadow-lg"></div>
+                    {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse shadow-lg"></div> */}
                   </div>
                   
                   <div>
                     <h3 className="font-bold text-lg tracking-wide">Support Center</h3>
                     <div className="flex items-center space-x-2 text-sm opacity-90">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="font-medium">Online • Instant replies</span>
                     </div>
                   </div>
                 </div>
@@ -377,7 +354,7 @@ const CustomerSupportChatbot = () => {
               <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
                 <div className="p-4 space-y-4">
                   <div className="text-center mb-6">
-                    <h4 className="text-xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
+                    <h4 className="text-xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                       How can we help?
                     </h4>
                     <p className="text-gray-600 text-sm">Choose an option below to get started</p>
@@ -390,19 +367,19 @@ const CustomerSupportChatbot = () => {
                         <button
                           key={index}
                           onClick={action.action}
-                          className="w-full p-4 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-violet-50 hover:to-blue-50 rounded-xl border border-gray-200 hover:border-violet-200 transition-all duration-300 text-left group hover:shadow-lg transform hover:-translate-y-1"
+                          className="w-full p-4 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-indigo-50 hover:to-blue-50 rounded-xl border border-gray-200 hover:border-indigo-200 transition-all duration-300 text-left group hover:shadow-lg transform hover:-translate-y-1"
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center space-x-3">
-                              <div className="w-10 h-10 bg-gradient-to-r from-violet-100 to-blue-100 rounded-xl flex items-center justify-center group-hover:from-violet-200 group-hover:to-blue-200 transition-all duration-300 group-hover:scale-110">
-                                <Icon className="w-5 h-5 text-violet-600" />
+                              <div className="w-10 h-10 bg-gradient-to-r from-indigo-100 to-blue-100 rounded-xl flex items-center justify-center group-hover:from-indigo-200 group-hover:to-blue-200 transition-all duration-300 group-hover:scale-110">
+                                <Icon className="w-5 h-5 text-indigo-600" />
                               </div>
                               <div>
                                 <h5 className="font-semibold text-gray-800">{action.title}</h5>
                                 <p className="text-sm text-gray-600">{action.subtitle}</p>
                               </div>
                             </div>
-                            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-violet-600 transition-all duration-300 group-hover:translate-x-1" />
+                            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-indigo-600 transition-all duration-300 group-hover:translate-x-1" />
                           </div>
                         </button>
                       );
@@ -431,7 +408,7 @@ const CustomerSupportChatbot = () => {
                         <div className={`flex items-end space-x-2 ${msg.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg ${
                             msg.type === 'user' 
-                              ? 'bg-gradient-to-r from-violet-500 to-blue-500' 
+                              ? 'bg-gradient-to-r from-indigo-500 to-blue-500' 
                               : 'bg-gradient-to-r from-gray-200 to-gray-300'
                           }`}>
                             {msg.type === 'user' ? (
@@ -442,7 +419,7 @@ const CustomerSupportChatbot = () => {
                           </div>
                           <div className={`px-4 py-3 rounded-2xl shadow-sm ${
                             msg.type === 'user'
-                              ? 'bg-gradient-to-r from-violet-500 to-blue-500 text-white rounded-br-md'
+                              ? 'bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-br-md'
                               : 'bg-gray-100 text-gray-800 rounded-bl-md'
                           }`}>
                             <p className="text-sm leading-relaxed">{msg.text}</p>
@@ -483,12 +460,12 @@ const CustomerSupportChatbot = () => {
                       onChange={(e) => setInput(e.target.value)}
                       onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
                       placeholder="Type your message..."
-                      className="flex-1 px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent bg-white shadow-sm"
+                      className="flex-1 px-4 py-3 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white shadow-sm"
                     />
                     <button
                       onClick={sendMessage}
                       disabled={!input.trim() || botBusy}
-                      className="w-12 h-12 bg-gradient-to-r from-violet-500 to-blue-500 hover:from-violet-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-2xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                      className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-2xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
                     >
                       <Send className="w-5 h-5" />
                     </button>
@@ -502,7 +479,7 @@ const CustomerSupportChatbot = () => {
                 <div className="space-y-3">
                   {faqData.map((faq, index) => (
                     <details key={index} className="group">
-                      <summary className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-violet-50 hover:to-blue-50 rounded-xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md">
+                      <summary className="flex items-center justify-between p-4 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-indigo-50 hover:to-blue-50 rounded-xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md">
                         <h5 className="font-medium text-gray-800 text-sm pr-4">{faq.question}</h5>
                         <ChevronRight className="w-4 h-4 text-gray-500 group-open:rotate-90 transition-transform duration-300" />
                       </summary>
@@ -510,7 +487,7 @@ const CustomerSupportChatbot = () => {
                         <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
                         <button 
                           onClick={() => handleQuickQuestion(faq.question)}
-                          className="mt-3 text-xs text-violet-600 hover:text-violet-700 font-medium flex items-center space-x-1 transition-colors"
+                          className="mt-3 text-xs text-indigo-600 hover:text-indigo-700 font-medium flex items-center space-x-1 transition-colors"
                         >
                           <MessageCircle className="w-3 h-3" />
                           <span>Ask this question in chat →</span>
@@ -520,12 +497,12 @@ const CustomerSupportChatbot = () => {
                   ))}
                 </div>
                 
-                <div className="mt-6 p-4 bg-gradient-to-r from-violet-50 to-blue-50 rounded-xl border border-violet-200">
+                <div className="mt-6 p-4 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl border border-indigo-200">
                   <h5 className="font-semibold text-gray-800 mb-2">Still need help?</h5>
                   <p className="text-sm text-gray-600 mb-3">Can't find what you're looking for? Our support team is here to help!</p>
                   <button 
                     onClick={() => setScreen('chat')}
-                    className="w-full bg-gradient-to-r from-violet-500 to-blue-500 hover:from-violet-600 hover:to-blue-600 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="w-full bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     Start a conversation
                   </button>
@@ -551,20 +528,20 @@ const CustomerSupportChatbot = () => {
                     onClick={() => setScreen(item.screen)}
                     className={`flex-1 p-4 flex flex-col items-center space-y-1 transition-all duration-300 relative ${
                       isActive 
-                        ? 'text-violet-600 bg-gradient-to-r from-violet-50 to-blue-50' 
+                        ? 'text-indigo-600 bg-gradient-to-r from-indigo-50 to-blue-50' 
                         : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                     }`}
                   >
                     <Icon className={`w-5 h-5 transition-all duration-300 ${
-                      isActive ? 'text-violet-600 scale-110' : 'text-gray-500'
+                      isActive ? 'text-indigo-600 scale-110' : 'text-gray-500'
                     }`} />
                     <span className={`text-xs font-medium transition-colors ${
-                      isActive ? 'text-violet-600' : 'text-gray-500'
+                      isActive ? 'text-indigo-600' : 'text-gray-500'
                     }`}>
                       {item.label}
                     </span>
                     {isActive && (
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-violet-500 to-blue-500 rounded-full"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"></div>
                     )}
                   </button>
                 );

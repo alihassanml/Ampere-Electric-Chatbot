@@ -211,7 +211,7 @@ const CustomerSupportChatbot = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-0 right-0   w-full  ">
+    <div className="fixed bottom-4 right-4 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md mx-4 sm:mx-0 z-50 ">
       <div 
         className="bg-white shadow-2xl border border-gray-200 overflow-hidden"
         style={{ 

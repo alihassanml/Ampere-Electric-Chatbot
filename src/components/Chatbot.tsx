@@ -211,11 +211,11 @@ const CustomerSupportChatbot = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md mx-4 sm:mx-0 z-50 ">
+    <div className="fixed right-0 bottom-0 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md  sm:mx-0 z-50 ">
       <div 
-        className="bg-white shadow-2xl border border-gray-200 overflow-hidden"
+        className="bg-white  border border-gray-200 overflow-hidden"
         style={{ 
-          height: 'min(85vh, 750px)', 
+          height: 'min(90vh, 750px)', 
           maxHeight: '85vh',
           minHeight: '600px',
           borderRadius:"30px"

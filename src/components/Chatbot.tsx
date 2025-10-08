@@ -215,7 +215,7 @@ const CustomerSupportChatbot = () => {
       <div 
         className="bg-white  border border-gray-200 overflow-hidden"
         style={{ 
-          height: 'min(90vh, 750px)', 
+          height: 'min(85vh, 750px)', 
           maxHeight: '85vh',
           minHeight: '600px',
           borderRadius:"30px"
@@ -272,7 +272,7 @@ const CustomerSupportChatbot = () => {
                 <div className="flex items-center space-x-3">
                   {/* Simple Bot Avatar */}
                   <div className="relative">
-                    <div className="w-12 h-12 bg-white/0 backdrop-blur-sm  flex items-center justify-center  shadow-lg">
+                    <div className="w-12 h-12 bg-white/0   flex items-center justify-center  ">
                       <img src="logo.png" alt="" />
                     </div>
                     {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse shadow-lg"></div> */}

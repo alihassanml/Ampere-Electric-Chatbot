@@ -11,7 +11,7 @@ type Message = {
 type Screen = 'home' | 'chat' | 'faq';
 
 const CustomerSupportChatbot = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [screen, setScreen] = useState<Screen>('home');
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
@@ -61,11 +61,11 @@ const CustomerSupportChatbot = () => {
     },
     {
       question: "How can I schedule an electrical service?",
-      answer: "You can schedule service by calling us at +1 (702) 979-1747, emailing shane@ampereelectricnv.com, or visit our booking page at ampereelectricnv.com/book-service/"
+      answer: "You can schedule service by calling us at (702) 720-9545, emailing shane@ampereelectricnv.com, or using this chat to request an appointment."
     },
     {
       question: "Do you offer emergency electrical services?",
-      answer: "Yes! We provide emergency electrical services in the Las Vegas area. Contact us immediately at +1 (702) 979-1747 for urgent electrical issues."
+      answer: "Yes! We provide emergency electrical services in the Las Vegas area. Contact us immediately for urgent electrical issues."
     },
     {
       question: "What areas do you serve?",
@@ -161,7 +161,7 @@ const CustomerSupportChatbot = () => {
       setTypingMessage(null);
       setMessages(prev => [...prev, { 
         type: 'bot', 
-        text: "I apologize for the inconvenience. Please contact us directly at +1 (702) 979-1747 or shane@ampereelectricnv.com for immediate assistance.", 
+        text: "I apologize for the inconvenience. Please contact us directly at (702) 720-9545 or shane@ampereelectricnv.com for immediate assistance.", 
         timestamp: new Date(),
         feedback: null
       }]);
@@ -214,31 +214,10 @@ const CustomerSupportChatbot = () => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
-  if (!isOpen) {
-    return (
-      <div className="fixed right-6 bottom-6 z-50">
-        <button
-          onClick={() => setIsOpen(true)}
-          className="group relative w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-full shadow-2xl hover:shadow-3xl flex items-center justify-center transition-all duration-300 hover:scale-110 border-4 border-white"
-        >
-          <Zap className="w-8 h-8 text-white" fill="white" />
-          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
-          
-          {/* Ripple Effect */}
-          <div className="absolute inset-0 rounded-full bg-amber-400 opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
-          
-          {/* Tooltip */}
-          <div className="absolute right-full mr-3 bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl">
-            Chat with us! ⚡
-            <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-slate-800"></div>
-          </div>
-        </button>
-      </div>
-    );
-  }
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed right-5 bottom-5 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
+    <div className="fixed right-0 bottom-0 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
       <div 
         className="bg-white border border-gray-200 overflow-hidden shadow-2xl"
         style={{ 
@@ -395,7 +374,7 @@ const CustomerSupportChatbot = () => {
                       <div>
                         <h5 className="font-bold text-slate-800 text-sm mb-1">Emergency Service Available</h5>
                         <p className="text-xs text-gray-700 leading-relaxed">
-                          Electrical emergencies? We're here to help 24/7. Call us immediately at +1 (702) 979-1747
+                          Electrical emergencies? We're here to help 24/7. Call us immediately at (702) 720-9545
                         </p>
                       </div>
                     </div>

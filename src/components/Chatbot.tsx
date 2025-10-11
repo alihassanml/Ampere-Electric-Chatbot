@@ -293,12 +293,7 @@ const CustomerSupportChatbot = () => {
                   </div>
                 </div>
                 
-                <button 
-                  onClick={() => setIsOpen(false)}
-                  className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+               
               </div>
               
               <div className="text-sm opacity-90 text-amber-100">

@@ -11,7 +11,7 @@ type Message = {
 type Screen = 'home' | 'chat' | 'faq';
 
 const CustomerSupportChatbot = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [screen, setScreen] = useState<Screen>('home');
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
@@ -214,10 +214,31 @@ const CustomerSupportChatbot = () => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
-  if (!isOpen) return null;
+  if (!isOpen) {
+    return (
+      <div className="fixed right-6 bottom-6 z-50">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="group relative w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-full shadow-2xl hover:shadow-3xl flex items-center justify-center transition-all duration-300 hover:scale-110 border-4 border-white"
+        >
+          <Zap className="w-8 h-8 text-white" fill="white" />
+          <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
+          
+          {/* Ripple Effect */}
+          <div className="absolute inset-0 rounded-full bg-amber-400 opacity-0 group-hover:opacity-20 group-hover:scale-150 transition-all duration-500"></div>
+          
+          {/* Tooltip */}
+          <div className="absolute right-full mr-3 bg-slate-800 text-white px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-xl">
+            Chat with us! ⚡
+            <div className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 rotate-45 w-2 h-2 bg-slate-800"></div>
+          </div>
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <div className="fixed right-0 bottom-0 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
+    <div className="fixed right-5 bottom-5 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
       <div 
         className="bg-white border border-gray-200 overflow-hidden shadow-2xl"
         style={{ 
@@ -293,12 +314,12 @@ const CustomerSupportChatbot = () => {
                   </div>
                 </div>
                 
-                {/* <button 
+                <button 
                   onClick={() => setIsOpen(false)}
                   className="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-90"
                 >
                   <X className="w-5 h-5" />
-                </button> */}
+                </button>
               </div>
               
               <div className="text-sm opacity-90 text-amber-100">

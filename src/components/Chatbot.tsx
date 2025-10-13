@@ -78,31 +78,31 @@ const CustomerSupportChatbot = () => {
   ];
 
   const quickActions = [
-    { 
-      icon: MessageCircle, 
-      title: "Start a Chat", 
-      subtitle: "Get instant help from our team", 
+    {
+      icon: MessageCircle,
+      title: "Start a Chat",
+      subtitle: "Get instant help from our team",
       action: () => setScreen('chat'),
       gradient: "from-amber-500 to-yellow-500"
     },
-    { 
-      icon: Phone, 
-      title: "Call Us Now", 
-      subtitle: "+1 (702) 979-1747", 
+    {
+      icon: Phone,
+      title: "Call Us Now",
+      subtitle: "+1 (702) 979-1747",
       action: () => window.open('tel:+17029791747'),
       gradient: "from-blue-600 to-cyan-600"
     },
-    { 
-      icon: Mail, 
-      title: "Email Support", 
-      subtitle: "shane@ampereelectricnv.com", 
+    {
+      icon: Mail,
+      title: "Email Support",
+      subtitle: "shane@ampereelectricnv.com",
       action: () => window.open('mailto:shane@ampereelectricnv.com'),
       gradient: "from-slate-600 to-slate-700"
     },
-    { 
-      icon: HelpCircle, 
-      title: "Browse FAQ", 
-      subtitle: "Common questions answered", 
+    {
+      icon: HelpCircle,
+      title: "Browse FAQ",
+      subtitle: "Common questions answered",
       action: () => setScreen('faq'),
       gradient: "from-orange-500 to-amber-600"
     }
@@ -117,12 +117,12 @@ const CustomerSupportChatbot = () => {
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json" 
+        headers: {
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ 
-          user_id: userId, 
-          message: userMessage 
+        body: JSON.stringify({
+          user_id: userId,
+          message: userMessage
         })
       });
 
@@ -142,15 +142,15 @@ const CustomerSupportChatbot = () => {
           setTypingMessage("Support agent is typing...");
           await new Promise(resolve => setTimeout(resolve, 1000));
         }
-        
+
         setTypingMessage(null);
-        setMessages(prev => [...prev, { 
-          type: 'bot', 
-          text: replies[i].trim(), 
+        setMessages(prev => [...prev, {
+          type: 'bot',
+          text: replies[i].trim(),
           timestamp: new Date(),
           feedback: null
         }]);
-        
+
         if (i < replies.length - 1) {
           await new Promise(resolve => setTimeout(resolve, 200));
         }
@@ -159,16 +159,16 @@ const CustomerSupportChatbot = () => {
     } catch (error) {
       console.error('Webhook error:', error);
       setTypingMessage(null);
-      setMessages(prev => [...prev, { 
-        type: 'bot', 
-        text: "I apologize for the inconvenience. Please contact us directly at (702) 720-9545 or shane@ampereelectricnv.com for immediate assistance.", 
+      setMessages(prev => [...prev, {
+        type: 'bot',
+        text: "I apologize for the inconvenience. Please contact us directly at (702) 720-9545 or shane@ampereelectricnv.com for immediate assistance.",
         timestamp: new Date(),
         feedback: null
       }]);
     }
 
     setBotBusy(false);
-    
+
     setMessageQueue(prev => {
       const [nextMessage, ...rest] = prev;
       if (nextMessage) {
@@ -182,12 +182,12 @@ const CustomerSupportChatbot = () => {
 
   const sendMessage = async () => {
     if (input.trim() === '') return;
-    
+
     const message = input.trim();
     setInput('');
-    setMessages(prev => [...prev, { 
-      type: 'user', 
-      text: message, 
+    setMessages(prev => [...prev, {
+      type: 'user',
+      text: message,
       timestamp: new Date(),
       feedback: null
     }]);
@@ -217,45 +217,44 @@ const CustomerSupportChatbot = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed right-0 bottom-0 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
-      <div 
-        className="bg-white border border-gray-200 overflow-hidden shadow-2xl"
-        style={{ 
-          height: 'min(85vh, 750px)', 
+    <div className="fixed right-0 bottom-1 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
+      <div
+        className="bg-white border border-gray-200 overflow-hidden "
+        style={{
+          height: 'min(85vh, 750px)',
           maxHeight: '85vh',
           minHeight: '600px',
           borderRadius: "24px"
         }}
       >
         <div className="flex flex-col h-full">
-          
+
           {/* Enhanced Professional Header */}
-          <div className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 ${
-            screen === 'home' ? 'pb-8' : ''
-          }`} style={{ borderRadius: '24px 24px 0 0' }}>
-            
+          <div className={`relative overflow-hidden   ${screen === 'home' ? 'pb-8 curved-rectangle' : ''
+            }`} style={{ borderRadius: '24px 24px 0 0', background: '#3d346a', }}>
+
             {/* Animated Electric Energy Background */}
             <div className="absolute inset-0 opacity-20">
-              <div className="absolute w-40 h-40 bg-amber-400 rounded-full blur-3xl animate-pulse" 
-                   style={{ 
-                     top: '20%', 
-                     right: '10%',
-                     animation: 'energyPulse 4s ease-in-out infinite'
-                   }}></div>
-              <div className="absolute w-32 h-32 bg-yellow-400 rounded-full blur-2xl animate-pulse" 
-                   style={{ 
-                     bottom: '10%', 
-                     left: '15%',
-                     animation: 'energyPulse 5s ease-in-out infinite',
-                     animationDelay: '1s'
-                   }}></div>
-              <div className="absolute w-24 h-24 bg-orange-500 rounded-full blur-xl animate-pulse" 
-                   style={{ 
-                     top: '50%', 
-                     left: '50%',
-                     animation: 'energyPulse 3s ease-in-out infinite',
-                     animationDelay: '2s'
-                   }}></div>
+              <div className="absolute w-40 h-40 bg-amber-400 rounded-full blur-3xl animate-pulse"
+                style={{
+                  top: '20%',
+                  right: '10%',
+                  animation: 'energyPulse 4s ease-in-out infinite'
+                }}></div>
+              <div className="absolute w-32 h-32 bg-yellow-400 rounded-full blur-2xl animate-pulse"
+                style={{
+                  bottom: '10%',
+                  left: '15%',
+                  animation: 'energyPulse 5s ease-in-out infinite',
+                  animationDelay: '1s'
+                }}></div>
+              <div className="absolute w-24 h-24 bg-orange-500 rounded-full blur-xl animate-pulse"
+                style={{
+                  top: '50%',
+                  left: '50%',
+                  animation: 'energyPulse 3s ease-in-out infinite',
+                  animationDelay: '2s'
+                }}></div>
             </div>
 
             {/* Electric Lines Effect */}
@@ -263,28 +262,28 @@ const CustomerSupportChatbot = () => {
               <svg className="w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="electric" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{stopColor: '#fbbf24', stopOpacity: 1}} />
-                    <stop offset="100%" style={{stopColor: '#f59e0b', stopOpacity: 0}} />
+                    <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: '#f59e0b', stopOpacity: 0 }} />
                   </linearGradient>
                 </defs>
                 <path d="M0,50 Q25,30 50,50 T100,50" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" />
-                <path d="M0,70 Q25,90 50,70 T100,70" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" style={{animationDelay: '0.5s'}} />
+                <path d="M0,70 Q25,90 50,70 T100,70" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
               </svg>
             </div>
-            
+
             {/* Header Content */}
-            <div className={`relative z-10 text-white ${
-              screen === 'home' ? 'p-6 pb-4' : 'p-5'
-            }`}>
+            <div className={`relative z-10 text-white ${screen === 'home' ? 'p-6 pb-0' : 'p-5'
+              }`} >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
                   <div className="relative">
-                    <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg border-2 border-amber-300/30">
-                      <Zap className="w-7 h-7 text-white" fill="white" />
+                    <div className="w-14 h-14 bg-gradient-to-br from-white-400 to-white-500 rounded-xl flex items-center justify-center  ">
+                      {/* <Zap className="w-7 h-7 text-white" fill="white" /> */}
+                      <img src="./logo.png" alt="" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-slate-800 animate-pulse"></div>
+                    {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-slate-800 animate-pulse"></div> */}
                   </div>
-                  
+
                   <div>
                     <h3 className="font-bold text-xl tracking-wide">Ampere Electric</h3>
                     <div className="flex items-center space-x-2 text-sm opacity-90">
@@ -292,10 +291,10 @@ const CustomerSupportChatbot = () => {
                     </div>
                   </div>
                 </div>
-                
-               
+
+
               </div>
-              
+
               <div className="text-sm opacity-90 text-amber-100">
                 {screen === 'home' && "👋 Expert Electrical Services in Las Vegas"}
                 {screen === 'chat' && "💬 We typically respond within seconds"}
@@ -336,7 +335,7 @@ const CustomerSupportChatbot = () => {
                     </h4>
                     <p className="text-gray-600 text-sm">Professional electrical services at your fingertips</p>
                   </div>
-                  
+
                   <div className="space-y-3">
                     {quickActions.map((action, index) => {
                       const Icon = action.icon;
@@ -381,27 +380,25 @@ const CustomerSupportChatbot = () => {
             {screen === 'chat' && (
               <div className="flex flex-col h-full">
                 <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent p-4 space-y-4 bg-gray-50">
-                  
+
                   {messages.map((msg, idx) => (
                     <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-[80%] ${msg.type === 'user' ? 'order-2' : 'order-1'}`}>
                         <div className={`flex items-end space-x-2 ${msg.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${
-                            msg.type === 'user' 
-                              ? 'bg-gradient-to-br from-blue-500 to-cyan-500' 
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${msg.type === 'user'
+                              ? 'bg-gradient-to-br from-blue-500 to-cyan-500'
                               : 'bg-gradient-to-br from-amber-400 to-orange-500'
-                          }`}>
+                            }`}>
                             {msg.type === 'user' ? (
                               <User className="w-4 h-4 text-white" />
                             ) : (
                               <Zap className="w-4 h-4 text-white" fill="white" />
                             )}
                           </div>
-                          <div className={`px-4 py-3 rounded-2xl shadow-md ${
-                            msg.type === 'user'
+                          <div className={`px-4 py-3 rounded-2xl shadow-md ${msg.type === 'user'
                               ? 'bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-br-sm'
                               : 'bg-white text-slate-800 rounded-bl-sm border border-gray-200'
-                          }`}>
+                            }`}>
                             <p className="text-sm leading-relaxed">{msg.text}</p>
                           </div>
                         </div>
@@ -411,7 +408,7 @@ const CustomerSupportChatbot = () => {
                       </div>
                     </div>
                   ))}
-                  
+
                   {typingMessage && (
                     <div className="flex justify-start">
                       <div className="flex items-end space-x-2">
@@ -465,7 +462,7 @@ const CustomerSupportChatbot = () => {
                       </summary>
                       <div className="p-4 pt-3 bg-white border-x border-b border-gray-200 rounded-b-xl mt-0.5">
                         <p className="text-sm text-gray-700 leading-relaxed">{faq.answer}</p>
-                        <button 
+                        <button
                           onClick={() => handleQuickQuestion(faq.question)}
                           className="mt-3 text-xs text-amber-600 hover:text-amber-700 font-semibold flex items-center space-x-1 transition-colors"
                         >
@@ -476,24 +473,8 @@ const CustomerSupportChatbot = () => {
                     </details>
                   ))}
                 </div>
-                
-                <div className="mt-6 p-5 bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl border-2 border-slate-600 shadow-xl">
-                  <div className="flex items-start space-x-3 mb-3">
-                    <Zap className="w-6 h-6 text-amber-400 flex-shrink-0" fill="currentColor" />
-                    <div>
-                      <h5 className="font-bold text-white mb-1">Need More Help?</h5>
-                      <p className="text-sm text-gray-300 leading-relaxed">
-                        Can't find what you're looking for? Our experienced electricians are ready to assist you!
-                      </p>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => setScreen('chat')}
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white py-3.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-                  >
-                    Start a Conversation
-                  </button>
-                </div>
+
+
               </div>
             )}
           </div>
@@ -508,23 +489,20 @@ const CustomerSupportChatbot = () => {
               ].map((item) => {
                 const Icon = item.icon;
                 const isActive = screen === item.screen;
-                
+
                 return (
                   <button
                     key={item.screen}
                     onClick={() => setScreen(item.screen)}
-                    className={`flex-1 p-4 flex flex-col items-center space-y-1 transition-all duration-300 relative ${
-                      isActive 
-                        ? 'text-amber-600 bg-amber-50' 
+                    className={`flex-1 p-4 flex flex-col items-center space-y-1 transition-all duration-300 relative ${isActive
+                        ? 'text-amber-600 bg-amber-50'
                         : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
-                    }`}
+                      }`}
                   >
-                    <Icon className={`w-5 h-5 transition-all duration-300 ${
-                      isActive ? 'text-amber-600 scale-110' : 'text-gray-500'
-                    }`} />
-                    <span className={`text-xs font-semibold transition-colors ${
-                      isActive ? 'text-amber-600' : 'text-gray-500'
-                    }`}>
+                    <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? 'text-amber-600 scale-110' : 'text-gray-500'
+                      }`} />
+                    <span className={`text-xs font-semibold transition-colors ${isActive ? 'text-amber-600' : 'text-gray-500'
+                      }`}>
                       {item.label}
                     </span>
                     {isActive && (

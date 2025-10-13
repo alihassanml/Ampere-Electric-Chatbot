@@ -230,8 +230,8 @@ const CustomerSupportChatbot = () => {
         <div className="flex flex-col h-full">
 
           {/* Enhanced Professional Header */}
-          <div className={`relative overflow-hidden   ${screen === 'home' ? 'pb-8 curved-rectangle' : ''
-            }`} style={{ borderRadius: '24px 24px 0 0', background: '#3d346a', }}>
+          <div className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900  ${screen === 'home' ? 'pb-8 curved-rectangle' : ''
+            }`} style={{ borderRadius: '24px 24px 0 0'}}>
 
             {/* Animated Electric Energy Background */}
             <div className="absolute inset-0 opacity-20">

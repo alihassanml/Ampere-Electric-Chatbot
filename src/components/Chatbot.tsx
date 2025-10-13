@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Home, MessageCircle, HelpCircle, X, Bot, User, ChevronRight, Phone, Mail, Zap } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
 
 type Message = {
   type: 'bot' | 'user';
@@ -10,6 +11,22 @@ type Message = {
 
 type Screen = 'home' | 'chat' | 'faq';
 
+// Default welcome message
+const WELCOME_MESSAGE = `Hello there! 👋
+
+I'm your **Ampere Electric Assistant**, here to help with all your electrical service needs in Las Vegas.
+
+**How can I help you today?**
+
+Feel free to ask about:
+- EV charger installation
+- Electrical repairs & troubleshooting
+- Generator installations
+- Lighting solutions
+- Emergency electrical services
+- Scheduling a consultation
+`;
+
 const CustomerSupportChatbot = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [screen, setScreen] = useState<Screen>('home');
@@ -18,6 +35,7 @@ const CustomerSupportChatbot = () => {
   const [typingMessage, setTypingMessage] = useState<string | null>(null);
   const [messageQueue, setMessageQueue] = useState<string[]>([]);
   const [botBusy, setBotBusy] = useState(false);
+  const [hasLoadedWelcome, setHasLoadedWelcome] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const [userId] = useState(() => {
@@ -31,6 +49,7 @@ const CustomerSupportChatbot = () => {
     return `user_${Math.random().toString(36).substring(2, 10)}`;
   });
 
+  // Load saved messages on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const savedMessages = sessionStorage.getItem(`chat_messages_${userId}`);
@@ -41,6 +60,7 @@ const CustomerSupportChatbot = () => {
             ...msg,
             timestamp: new Date(msg.timestamp)
           })));
+          setHasLoadedWelcome(true);
         } catch (error) {
           console.error('Error loading saved messages:', error);
         }
@@ -48,6 +68,20 @@ const CustomerSupportChatbot = () => {
     }
   }, [userId]);
 
+  // Add welcome message if no saved messages and user goes to chat
+  useEffect(() => {
+    if (screen === 'chat' && messages.length === 0 && !hasLoadedWelcome) {
+      setMessages([{
+        type: 'bot',
+        text: WELCOME_MESSAGE,
+        timestamp: new Date(),
+        feedback: null
+      }]);
+      setHasLoadedWelcome(true);
+    }
+  }, [screen, messages.length, hasLoadedWelcome]);
+
+  // Save messages to sessionStorage
   useEffect(() => {
     if (typeof window !== 'undefined' && messages.length > 0) {
       sessionStorage.setItem(`chat_messages_${userId}`, JSON.stringify(messages));
@@ -88,8 +122,8 @@ const CustomerSupportChatbot = () => {
     {
       icon: Phone,
       title: "Call Us Now",
-      subtitle: "+1 (702) 979-1747",
-      action: () => window.open('tel:+17029791747'),
+      subtitle: "+1 (702) 720-9545",
+      action: () => window.open('tel:+17027209545'),
       gradient: "from-blue-600 to-cyan-600"
     },
     {
@@ -202,6 +236,12 @@ const CustomerSupportChatbot = () => {
   const handleQuickQuestion = (question: string) => {
     setScreen('chat');
     setTimeout(() => {
+      setMessages(prev => [...prev, {
+        type: 'user',
+        text: question,
+        timestamp: new Date(),
+        feedback: null
+      }]);
       handleBotResponse(question);
     }, 300);
   };
@@ -219,7 +259,7 @@ const CustomerSupportChatbot = () => {
   return (
     <div className="fixed right-0 bottom-1 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
       <div
-        className="bg-white  overflow-hidden "
+        className="bg-white overflow-hidden"
         style={{
           height: 'min(85vh, 750px)',
           maxHeight: '85vh',
@@ -230,8 +270,7 @@ const CustomerSupportChatbot = () => {
         <div className="flex flex-col h-full">
 
           {/* Enhanced Professional Header */}
-          <div className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900  ${screen === 'home' ? 'pb-8 curved-rectangle' : ''
-            }`} style={{ borderRadius: '24px 24px 0 0'}}>
+          <div className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 ${screen === 'home' ? 'pb-8 curved-rectangle' : ''}`} style={{ borderRadius: '24px 24px 0 0'}}>
 
             {/* Animated Electric Energy Background */}
             <div className="absolute inset-0 opacity-20">
@@ -272,16 +311,13 @@ const CustomerSupportChatbot = () => {
             </div>
 
             {/* Header Content */}
-            <div className={`relative z-10 text-white ${screen === 'home' ? 'p-6 pb-0' : 'p-5'
-              }`} >
+            <div className={`relative z-10 text-white ${screen === 'home' ? 'p-6 pb-0' : 'p-5'}`}>
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
                   <div className="relative">
-                    <div className="w-14 h-14 bg-gradient-to-br from-white-400 to-white-500 rounded-xl flex items-center justify-center  ">
-                      {/* <Zap className="w-7 h-7 text-white" fill="white" /> */}
+                    <div className="w-14 h-14 bg-gradient-to-br from-white-400 to-white-500 rounded-xl flex items-center justify-center">
                       <img src="./logo.png" alt="" />
                     </div>
-                    {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-slate-800 animate-pulse"></div> */}
                   </div>
 
                   <div>
@@ -291,8 +327,6 @@ const CustomerSupportChatbot = () => {
                     </div>
                   </div>
                 </div>
-
-
               </div>
 
               <div className="text-sm opacity-90 text-amber-100">
@@ -399,7 +433,27 @@ const CustomerSupportChatbot = () => {
                               ? 'bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-br-sm'
                               : 'bg-white text-slate-800 rounded-bl-sm border border-gray-200'
                             }`}>
-                            <p className="text-sm leading-relaxed">{msg.text}</p>
+                            <div className={`text-sm leading-relaxed ${msg.type === 'user' ? 'prose-invert' : 'prose'} prose-sm max-w-none`}>
+                              <ReactMarkdown
+                                components={{
+                                  p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                                  strong: ({node, ...props}) => <strong className="font-bold" {...props} />,
+                                  em: ({node, ...props}) => <em className="italic" {...props} />,
+                                  a: ({node, ...props}) => <a className={`${msg.type === 'user' ? 'text-white underline' : 'text-blue-600'} hover:underline`} target="_blank" rel="noopener noreferrer" {...props} />,
+                                  ul: ({node, ...props}) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
+                                  ol: ({node, ...props}) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
+                                  li: ({node, ...props}) => <li className="mb-1" {...props} />,
+                                  code: ({node, inline, ...props}: any) => 
+                                    inline ? (
+                                      <code className={`${msg.type === 'user' ? 'bg-blue-600' : 'bg-gray-100'} px-1 py-0.5 rounded text-xs`} {...props} />
+                                    ) : (
+                                      <code className={`block ${msg.type === 'user' ? 'bg-blue-600' : 'bg-gray-100'} p-2 rounded text-xs overflow-x-auto`} {...props} />
+                                    ),
+                                }}
+                              >
+                                {msg.text}
+                              </ReactMarkdown>
+                            </div>
                           </div>
                         </div>
                         <p className={`text-xs text-gray-500 mt-1 px-10 ${msg.type === 'user' ? 'text-right' : 'text-left'}`}>
@@ -473,8 +527,6 @@ const CustomerSupportChatbot = () => {
                     </details>
                   ))}
                 </div>
-
-
               </div>
             )}
           </div>

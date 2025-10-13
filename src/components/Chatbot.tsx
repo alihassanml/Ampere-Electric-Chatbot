@@ -257,94 +257,96 @@ const CustomerSupportChatbot = () => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed right-0 bottom-1 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
-      <div
-        className="bg-white overflow-hidden"
-        style={{
-          height: 'min(85vh, 750px)',
-          maxHeight: '85vh',
-          minHeight: '600px',
-          borderRadius: "24px"
-        }}
-      >
-        <div className="flex flex-col h-full">
+    <div className="fixed right-0 bottom-0 w-full sm:w-[450px] shadow-2xs ">
+        <div
+          className="bg-white overflow-hidden border border-gray-200 shadow-xl "
+          style={{
+            height: 'min(85vh, 750px)',
+            maxHeight: '85vh',
+            minHeight: '630px',
+            borderRadius: "24px"
+          }}
+        >
+          <div className="flex flex-col h-full">
 
-          {/* Enhanced Professional Header */}
-          <div className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 ${screen === 'home' ? 'pb-8 curved-rectangle' : ''}`} style={{ borderRadius: '24px 24px 0 0'}}>
+            {/* Enhanced Professional Header */}
+            <div className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 ${screen === 'home' ? 'pb-8 curved-rectangle' : ''}`} style={{ borderRadius: '24px 24px 0 0' }}>
 
-            {/* Animated Electric Energy Background */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute w-40 h-40 bg-amber-400 rounded-full blur-3xl animate-pulse"
-                style={{
-                  top: '20%',
-                  right: '10%',
-                  animation: 'energyPulse 4s ease-in-out infinite'
-                }}></div>
-              <div className="absolute w-32 h-32 bg-yellow-400 rounded-full blur-2xl animate-pulse"
-                style={{
-                  bottom: '10%',
-                  left: '15%',
-                  animation: 'energyPulse 5s ease-in-out infinite',
-                  animationDelay: '1s'
-                }}></div>
-              <div className="absolute w-24 h-24 bg-orange-500 rounded-full blur-xl animate-pulse"
-                style={{
-                  top: '50%',
-                  left: '50%',
-                  animation: 'energyPulse 3s ease-in-out infinite',
-                  animationDelay: '2s'
-                }}></div>
-            </div>
-
-            {/* Electric Lines Effect */}
-            <div className="absolute inset-0">
-              <svg className="w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="electric" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
-                    <stop offset="100%" style={{ stopColor: '#f59e0b', stopOpacity: 0 }} />
-                  </linearGradient>
-                </defs>
-                <path d="M0,50 Q25,30 50,50 T100,50" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" />
-                <path d="M0,70 Q25,90 50,70 T100,70" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-              </svg>
-            </div>
-
-            {/* Header Content */}
-            <div className={`relative z-10 text-white ${screen === 'home' ? 'p-6 pb-0' : 'p-5'}`}>
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    <div className="w-14 h-14 bg-gradient-to-br from-white-400 to-white-500 rounded-xl flex items-center justify-center">
-                      <img src="./logo.png" alt="" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-xl tracking-wide">Ampere Electric</h3>
-                    <div className="flex items-center space-x-2 text-sm opacity-90">
-                      <span className="text-amber-300">⚡ Online Now</span>
-                    </div>
-                  </div>
-                </div>
+              {/* Animated Electric Energy Background */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute w-40 h-40 bg-amber-400 rounded-full blur-3xl animate-pulse"
+                  style={{
+                    top: '20%',
+                    right: '10%',
+                    animation: 'energyPulse 4s ease-in-out infinite'
+                  }}></div>
+                <div className="absolute w-32 h-32 bg-yellow-400 rounded-full blur-2xl animate-pulse"
+                  style={{
+                    bottom: '10%',
+                    left: '15%',
+                    animation: 'energyPulse 5s ease-in-out infinite',
+                    animationDelay: '1s'
+                  }}></div>
+                <div className="absolute w-24 h-24 bg-orange-500 rounded-full blur-xl animate-pulse"
+                  style={{
+                    top: '50%',
+                    left: '50%',
+                    animation: 'energyPulse 3s ease-in-out infinite',
+                    animationDelay: '2s'
+                  }}></div>
               </div>
 
-              <div className="text-sm opacity-90 text-amber-100">
-                {screen === 'home' && "👋 Expert Electrical Services in Las Vegas"}
-                {screen === 'chat' && "💬 We typically respond within seconds"}
-                {screen === 'faq' && "❓ Quick answers to common questions"}
+              {/* Electric Lines Effect */}
+              <div className="absolute inset-0">
+                <svg className="w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="electric" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: '#f59e0b', stopOpacity: 0 }} />
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,50 Q25,30 50,50 T100,50" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" />
+                  <path d="M0,70 Q25,90 50,70 T100,70" stroke="url(#electric)" strokeWidth="2" fill="none" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
+                </svg>
+
               </div>
 
-              {screen === 'home' && (
-                <div className="mt-3">
-                  <p className="text-sm opacity-80 leading-relaxed text-gray-200">
-                    Third-generation electricians since 1987 • Licensed & Insured
-                  </p>
-                </div>
-              )}
-            </div>
+              {/* Header Content */}
+              <div className={`relative z-10 text-white ${screen === 'home' ? 'p-6 pb-0' : 'p-5'}`}>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-3">
+                    <div className="relative">
+                      <div className="w-14 h-14 bg-gradient-to-br from-white-400 to-white-500 rounded-xl flex items-center justify-center">
+                        <img src="./logo.png" alt="" />
+                      </div>
+                    </div>
 
-            <style jsx>{`
+                    <div>
+                      <h3 className="font-bold text-xl tracking-wide">Ampere Electric</h3>
+                      <div className="flex items-center space-x-2 text-sm opacity-90">
+                        <span className="text-amber-300">⚡ Online Now</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div className="text-sm opacity-90 text-amber-100">
+                  {screen === 'home' && "👋 Expert Electrical Services in Las Vegas"}
+                  {screen === 'chat' && "💬 We typically respond within seconds"}
+                  {screen === 'faq' && "❓ Quick answers to common questions"}
+                </div>
+
+                {screen === 'home' && (
+                  <div className="mt-3">
+                    <p className="text-sm opacity-80 leading-relaxed text-gray-200">
+                      Third-generation electricians since 1987 • Licensed & Insured
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <style jsx>{`
               @keyframes energyPulse {
                 0%, 100% { 
                   transform: scale(1) translateY(0px); 
@@ -356,217 +358,219 @@ const CustomerSupportChatbot = () => {
                 }
               }
             `}</style>
-          </div>
 
-          {/* Main Content */}
-          <div className="flex-1 min-h-0 overflow-hidden">
-            {screen === 'home' && (
-              <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
-                <div className="p-5 space-y-4">
-                  <div className="text-center mb-4">
-                    <h4 className="text-2xl font-bold text-slate-800 mb-2">
-                      How Can We Help?
-                    </h4>
-                    <p className="text-gray-600 text-sm">Professional electrical services at your fingertips</p>
-                  </div>
 
-                  <div className="space-y-3">
-                    {quickActions.map((action, index) => {
-                      const Icon = action.icon;
-                      return (
-                        <button
-                          key={index}
-                          onClick={action.action}
-                          className="w-full p-4 bg-white hover:bg-gray-50 rounded-2xl border-2 border-gray-200 hover:border-amber-300 transition-all duration-300 text-left group hover:shadow-xl transform hover:-translate-y-1"
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-4">
-                              <div className={`w-12 h-12 bg-gradient-to-br ${action.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                                <Icon className="w-6 h-6 text-white" />
+            </div>
+
+            {/* Main Content */}
+            <div className="flex-1 min-h-0 overflow-hidden">
+              {screen === 'home' && (
+                <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+                  <div className="p-5 space-y-4">
+                    <div className="text-center mb-4">
+                      <h4 className="text-2xl font-bold text-slate-800 mb-2">
+                        How Can We Help?
+                      </h4>
+                      <p className="text-gray-600 text-sm">Professional electrical services at your fingertips</p>
+                    </div>
+
+                    <div className="space-y-3">
+                      {quickActions.map((action, index) => {
+                        const Icon = action.icon;
+                        return (
+                          <button
+                            key={index}
+                            onClick={action.action}
+                            className="w-full p-4 bg-white hover:bg-gray-50 rounded-2xl border-2 border-gray-200 hover:border-amber-300 transition-all duration-300 text-left group hover:shadow-xl transform hover:-translate-y-1"
+                          >
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-4">
+                                <div className={`w-12 h-12 bg-gradient-to-br ${action.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                  <Icon className="w-6 h-6 text-white" />
+                                </div>
+                                <div>
+                                  <h5 className="font-bold text-slate-800 text-base">{action.title}</h5>
+                                  <p className="text-sm text-gray-600 mt-0.5">{action.subtitle}</p>
+                                </div>
                               </div>
-                              <div>
-                                <h5 className="font-bold text-slate-800 text-base">{action.title}</h5>
-                                <p className="text-sm text-gray-600 mt-0.5">{action.subtitle}</p>
-                              </div>
+                              <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-amber-500 transition-all duration-300 group-hover:translate-x-1" />
                             </div>
-                            <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-amber-500 transition-all duration-300 group-hover:translate-x-1" />
-                          </div>
-                        </button>
-                      );
-                    })}
-                  </div>
+                          </button>
+                        );
+                      })}
+                    </div>
 
-                  <div className="mt-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-200">
-                    <div className="flex items-start space-x-3">
-                      <Zap className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h5 className="font-bold text-slate-800 text-sm mb-1">Emergency Service Available</h5>
-                        <p className="text-xs text-gray-700 leading-relaxed">
-                          Electrical emergencies? We're here to help 24/7. Call us immediately at (702) 720-9545
-                        </p>
+                    <div className="mt-6 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-200">
+                      <div className="flex items-start space-x-3">
+                        <Zap className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h5 className="font-bold text-slate-800 text-sm mb-1">Emergency Service Available</h5>
+                          <p className="text-xs text-gray-700 leading-relaxed">
+                            Electrical emergencies? We're here to help 24/7. Call us immediately at (702) 720-9545
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {screen === 'chat' && (
-              <div className="flex flex-col h-full">
-                <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent p-4 space-y-4 bg-gray-50">
+              {screen === 'chat' && (
+                <div className="flex flex-col h-full">
+                  <div className="flex-1 min-h-0 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent p-4 space-y-4 bg-gray-50">
 
-                  {messages.map((msg, idx) => (
-                    <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[80%] ${msg.type === 'user' ? 'order-2' : 'order-1'}`}>
-                        <div className={`flex items-end space-x-2 ${msg.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${msg.type === 'user'
+                    {messages.map((msg, idx) => (
+                      <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                        <div className={`max-w-[80%] ${msg.type === 'user' ? 'order-2' : 'order-1'}`}>
+                          <div className={`flex items-end space-x-2 ${msg.type === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 ${msg.type === 'user'
                               ? 'bg-gradient-to-br from-blue-500 to-cyan-500'
                               : 'bg-gradient-to-br from-amber-400 to-orange-500'
-                            }`}>
-                            {msg.type === 'user' ? (
-                              <User className="w-4 h-4 text-white" />
-                            ) : (
-                              <Zap className="w-4 h-4 text-white" fill="white" />
-                            )}
-                          </div>
-                          <div className={`px-4 py-3 rounded-2xl shadow-md ${msg.type === 'user'
+                              }`}>
+                              {msg.type === 'user' ? (
+                                <User className="w-4 h-4 text-white" />
+                              ) : (
+                                <Zap className="w-4 h-4 text-white" fill="white" />
+                              )}
+                            </div>
+                            <div className={`px-4 py-3 rounded-2xl shadow-md ${msg.type === 'user'
                               ? 'bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-br-sm'
                               : 'bg-white text-slate-800 rounded-bl-sm border border-gray-200'
-                            }`}>
-                            <div className={`text-sm leading-relaxed ${msg.type === 'user' ? 'prose-invert' : 'prose'} prose-sm max-w-none`}>
-                              <ReactMarkdown
-                                components={{
-                                  p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
-                                  strong: ({node, ...props}) => <strong className="font-bold" {...props} />,
-                                  em: ({node, ...props}) => <em className="italic" {...props} />,
-                                  a: ({node, ...props}) => <a className={`${msg.type === 'user' ? 'text-white underline' : 'text-blue-600'} hover:underline`} target="_blank" rel="noopener noreferrer" {...props} />,
-                                  ul: ({node, ...props}) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
-                                  ol: ({node, ...props}) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
-                                  li: ({node, ...props}) => <li className="mb-1" {...props} />,
-                                  code: ({node, inline, ...props}: any) => 
-                                    inline ? (
-                                      <code className={`${msg.type === 'user' ? 'bg-blue-600' : 'bg-gray-100'} px-1 py-0.5 rounded text-xs`} {...props} />
-                                    ) : (
-                                      <code className={`block ${msg.type === 'user' ? 'bg-blue-600' : 'bg-gray-100'} p-2 rounded text-xs overflow-x-auto`} {...props} />
-                                    ),
-                                }}
-                              >
-                                {msg.text}
-                              </ReactMarkdown>
+                              }`}>
+                              <div className={`text-sm leading-relaxed ${msg.type === 'user' ? 'prose-invert' : 'prose'} prose-sm max-w-none`}>
+                                <ReactMarkdown
+                                  components={{
+                                    p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                                    strong: ({ node, ...props }) => <strong className="font-bold" {...props} />,
+                                    em: ({ node, ...props }) => <em className="italic" {...props} />,
+                                    a: ({ node, ...props }) => <a className={`${msg.type === 'user' ? 'text-white underline' : 'text-blue-600'} hover:underline`} target="_blank" rel="noopener noreferrer" {...props} />,
+                                    ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2 space-y-1" {...props} />,
+                                    ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2 space-y-1" {...props} />,
+                                    li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+                                    code: ({ node, inline, ...props }: any) =>
+                                      inline ? (
+                                        <code className={`${msg.type === 'user' ? 'bg-blue-600' : 'bg-gray-100'} px-1 py-0.5 rounded text-xs`} {...props} />
+                                      ) : (
+                                        <code className={`block ${msg.type === 'user' ? 'bg-blue-600' : 'bg-gray-100'} p-2 rounded text-xs overflow-x-auto`} {...props} />
+                                      ),
+                                  }}
+                                >
+                                  {msg.text}
+                                </ReactMarkdown>
+                              </div>
+                            </div>
+                          </div>
+                          <p className={`text-xs text-gray-500 mt-1 px-10 ${msg.type === 'user' ? 'text-right' : 'text-left'}`}>
+                            {formatTime(msg.timestamp)}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+
+                    {typingMessage && (
+                      <div className="flex justify-start">
+                        <div className="flex items-end space-x-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
+                            <Zap className="w-4 h-4 text-white" fill="white" />
+                          </div>
+                          <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-sm shadow-md border border-gray-200">
+                            <div className="flex space-x-1.5">
+                              <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce"></div>
+                              <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
+                              <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
                             </div>
                           </div>
                         </div>
-                        <p className={`text-xs text-gray-500 mt-1 px-10 ${msg.type === 'user' ? 'text-right' : 'text-left'}`}>
-                          {formatTime(msg.timestamp)}
-                        </p>
                       </div>
-                    </div>
-                  ))}
+                    )}
+                    <div ref={messagesEndRef} />
+                  </div>
 
-                  {typingMessage && (
-                    <div className="flex justify-start">
-                      <div className="flex items-end space-x-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
-                          <Zap className="w-4 h-4 text-white" fill="white" />
-                        </div>
-                        <div className="bg-white px-4 py-3 rounded-2xl rounded-bl-sm shadow-md border border-gray-200">
-                          <div className="flex space-x-1.5">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: '0.15s' }}></div>
-                            <div className="w-2 h-2 bg-amber-500 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
-                          </div>
-                        </div>
-                      </div>
+                  {/* Enhanced Chat Input */}
+                  <div className="p-4 border-t-2 border-gray-200 bg-white">
+                    <div className="flex space-x-3">
+                      <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+                        placeholder="Type your message..."
+                        className="flex-1 px-4 py-3.5 border-2 border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent bg-gray-50 shadow-sm text-sm"
+                      />
+                      <button
+                        onClick={sendMessage}
+                        disabled={!input.trim() || botBusy}
+                        className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-2xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+                      >
+                        <Send className="w-5 h-5" />
+                      </button>
                     </div>
-                  )}
-                  <div ref={messagesEndRef} />
-                </div>
-
-                {/* Enhanced Chat Input */}
-                <div className="p-4 border-t-2 border-gray-200 bg-white">
-                  <div className="flex space-x-3">
-                    <input
-                      type="text"
-                      value={input}
-                      onChange={(e) => setInput(e.target.value)}
-                      onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-                      placeholder="Type your message..."
-                      className="flex-1 px-4 py-3.5 border-2 border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent bg-gray-50 shadow-sm text-sm"
-                    />
-                    <button
-                      onClick={sendMessage}
-                      disabled={!input.trim() || botBusy}
-                      className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-2xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
-                    >
-                      <Send className="w-5 h-5" />
-                    </button>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            {screen === 'faq' && (
-              <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent p-4 bg-gray-50">
-                <div className="space-y-3">
-                  {faqData.map((faq, index) => (
-                    <details key={index} className="group">
-                      <summary className="flex items-center justify-between p-4 bg-white hover:bg-amber-50 rounded-xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200 hover:border-amber-300">
-                        <h5 className="font-semibold text-slate-800 text-sm pr-4">{faq.question}</h5>
-                        <ChevronRight className="w-4 h-4 text-gray-500 group-open:rotate-90 transition-transform duration-300 flex-shrink-0" />
-                      </summary>
-                      <div className="p-4 pt-3 bg-white border-x border-b border-gray-200 rounded-b-xl mt-0.5">
-                        <p className="text-sm text-gray-700 leading-relaxed">{faq.answer}</p>
-                        <button
-                          onClick={() => handleQuickQuestion(faq.question)}
-                          className="mt-3 text-xs text-amber-600 hover:text-amber-700 font-semibold flex items-center space-x-1 transition-colors"
-                        >
-                          <MessageCircle className="w-3.5 h-3.5" />
-                          <span>Ask this in chat →</span>
-                        </button>
-                      </div>
-                    </details>
-                  ))}
+              {screen === 'faq' && (
+                <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent p-4 bg-gray-50">
+                  <div className="space-y-3">
+                    {faqData.map((faq, index) => (
+                      <details key={index} className="group">
+                        <summary className="flex items-center justify-between p-4 bg-white hover:bg-amber-50 rounded-xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-md border border-gray-200 hover:border-amber-300">
+                          <h5 className="font-semibold text-slate-800 text-sm pr-4">{faq.question}</h5>
+                          <ChevronRight className="w-4 h-4 text-gray-500 group-open:rotate-90 transition-transform duration-300 flex-shrink-0" />
+                        </summary>
+                        <div className="p-4 pt-3 bg-white border-x border-b border-gray-200 rounded-b-xl mt-0.5">
+                          <p className="text-sm text-gray-700 leading-relaxed">{faq.answer}</p>
+                          <button
+                            onClick={() => handleQuickQuestion(faq.question)}
+                            className="mt-3 text-xs text-amber-600 hover:text-amber-700 font-semibold flex items-center space-x-1 transition-colors"
+                          >
+                            <MessageCircle className="w-3.5 h-3.5" />
+                            <span>Ask this in chat →</span>
+                          </button>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
-          {/* Enhanced Footer Navigation */}
-          <div className="border-t-2 border-gray-200 bg-white">
-            <div className="flex">
-              {[
-                { icon: Home, label: 'Home', screen: 'home' as Screen },
-                { icon: MessageCircle, label: 'Chat', screen: 'chat' as Screen },
-                { icon: HelpCircle, label: 'FAQ', screen: 'faq' as Screen }
-              ].map((item) => {
-                const Icon = item.icon;
-                const isActive = screen === item.screen;
+            {/* Enhanced Footer Navigation */}
+            <div className="border-t-2 border-gray-200 bg-white ">
+              <div className="flex">
+                {[
+                  { icon: Home, label: 'Home', screen: 'home' as Screen },
+                  { icon: MessageCircle, label: 'Chat', screen: 'chat' as Screen },
+                  { icon: HelpCircle, label: 'FAQ', screen: 'faq' as Screen }
+                ].map((item) => {
+                  const Icon = item.icon;
+                  const isActive = screen === item.screen;
 
-                return (
-                  <button
-                    key={item.screen}
-                    onClick={() => setScreen(item.screen)}
-                    className={`flex-1 p-4 flex flex-col items-center space-y-1 transition-all duration-300 relative ${isActive
+                  return (
+                    <button
+                      key={item.screen}
+                      onClick={() => setScreen(item.screen)}
+                      className={`flex-1 p-4 flex flex-col items-center space-y-1 transition-all duration-300 relative ${isActive
                         ? 'text-amber-600 bg-amber-50'
                         : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
-                      }`}
-                  >
-                    <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? 'text-amber-600 scale-110' : 'text-gray-500'
-                      }`} />
-                    <span className={`text-xs font-semibold transition-colors ${isActive ? 'text-amber-600' : 'text-gray-500'
-                      }`}>
-                      {item.label}
-                    </span>
-                    {isActive && (
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
-                    )}
-                  </button>
-                );
-              })}
+                        }`}
+                    >
+                      <Icon className={`w-5 h-5 transition-all duration-300 ${isActive ? 'text-amber-600 scale-110' : 'text-gray-500'
+                        }`} />
+                      <span className={`text-xs font-semibold transition-colors ${isActive ? 'text-amber-600' : 'text-gray-500'
+                        }`}>
+                        {item.label}
+                      </span>
+                      {isActive && (
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

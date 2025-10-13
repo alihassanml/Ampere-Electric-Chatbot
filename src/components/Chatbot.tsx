@@ -219,7 +219,7 @@ const CustomerSupportChatbot = () => {
   return (
     <div className="fixed right-0 bottom-1 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md sm:mx-0 z-50">
       <div
-        className="bg-white border border-gray-200 overflow-hidden "
+        className="bg-white  overflow-hidden "
         style={{
           height: 'min(85vh, 750px)',
           maxHeight: '85vh',

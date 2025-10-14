@@ -12,14 +12,15 @@ type Message = {
 type Screen = 'home' | 'chat' | 'faq';
 
 // Default welcome message
-const WELCOME_MESSAGE = `Hello there! 👋
+const WELCOME_MESSAGE = `Hey there! 👋
 
-I'm your **Ampere Electric Assistant**, here to help with all your electrical service needs in Las Vegas.
+I'm **Shane** from **Ampere Electric**, your local electrical expert here in Las Vegas.
 
-**How can I help you today?**
+Thanks for stopping by! ⚡  
+How can I help you today?
 
-Feel free to ask about:
-- EV charger installation
+You can ask me about:
+- EV charger installations
 - Electrical repairs & troubleshooting
 - Generator installations
 - Lighting solutions

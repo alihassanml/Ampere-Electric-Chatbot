@@ -12,21 +12,7 @@ type Message = {
 type Screen = 'home' | 'chat' | 'faq';
 
 // Default welcome message
-const WELCOME_MESSAGE = `Hey there! 👋
-
-I'm **Shane** from **Ampere Electric**, your local electrical expert here in Las Vegas.
-
-Thanks for stopping by! ⚡  
-How can I help you today?
-
-You can ask me about:
-- EV charger installations
-- Electrical repairs & troubleshooting
-- Generator installations
-- Lighting solutions
-- Emergency electrical services
-- Scheduling a consultation
-`;
+const WELCOME_MESSAGE = `Hi, this is **Sam** at **Ampere electric**.... What can i do for you?`;
 
 const CustomerSupportChatbot = () => {
   const [isOpen, setIsOpen] = useState(true);

@@ -293,7 +293,7 @@ const CustomerSupportChatbot = () => {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div 
-            className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 ${screen === 'home' ? 'pb-8' : ''}`} 
+            className={`relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 ${screen === 'home' ? 'pb-1' : ''}`} 
             style={{ borderRadius: '32px 32px 0 0' }}
           >
             {/* Animated Background */}

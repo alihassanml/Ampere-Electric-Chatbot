@@ -142,20 +142,7 @@ const CustomerSupportChatbot = () => {
       action: () => setScreen('chat'),
       gradient: "from-amber-500 to-yellow-500"
     },
-    {
-      icon: Phone,
-      title: "Call Us Now",
-      subtitle: "+1 (702) 720-9545",
-      action: () => window.open('tel:+17027209545'),
-      gradient: "from-blue-600 to-cyan-600"
-    },
-    {
-      icon: Mail,
-      title: "Email Support",
-      subtitle: "shane@ampereelectricnv.com",
-      action: () => window.open('mailto:shane@ampereelectricnv.com'),
-      gradient: "from-slate-600 to-slate-700"
-    },
+    
     {
       icon: HelpCircle,
       title: "Browse FAQ",

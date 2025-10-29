@@ -322,7 +322,7 @@ const CustomerSupportChatbot = () => {
             </div>
 
             {/* Header Content */}
-            <div className={`relative z-10 text-white ${screen === 'home' ? 'p-5 sm:p-6 pb-0' : 'p-4 sm:p-5'}`}>
+            <div className={`relative z-10 text-white ${screen === 'home' ? 'p-5 sm:p-6 pb-5' : 'p-4 sm:p-5'}`}>
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-2 sm:space-x-3">
                   <div className="relative">

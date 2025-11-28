@@ -15,7 +15,7 @@ const WELCOME_MESSAGE = `Hi, this is **Sam** at **Ampere electric**.... What can
 
 const CustomerSupportChatbot = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [screen, setScreen] = useState<Screen>('home');
+  const [screen, setScreen] = useState<Screen>('chat');
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([]);
   const [typingMessage, setTypingMessage] = useState<string | null>(null);
@@ -545,7 +545,7 @@ const CustomerSupportChatbot = () => {
           <div className="border-t-2 border-gray-200 bg-white">
             <div className="flex">
               {[
-                { icon: Home, label: 'Home', screen: 'home' as Screen },
+                // { icon: Home, label: 'Home', screen: 'home' as Screen },
                 { icon: MessageCircle, label: 'Chat', screen: 'chat' as Screen },
                 { icon: HelpCircle, label: 'FAQ', screen: 'faq' as Screen }
               ].map((item) => {
